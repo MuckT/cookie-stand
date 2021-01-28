@@ -1,19 +1,242 @@
-// Shop Maker
-function Shop(minMaxCustomer = [0,0], avgCookiesSale) {
-  this.minCustomers = minMaxCustomer[0];
-  this.maxCustomers = minMaxCustomer[1];
-  this.avgCookiesSale = avgCookiesSale;
-  this.customersPerHours = () => {}; // TODO add random number generation
-  this.cookiesPerHourArray = []; // TODO Calc this on creation
-  this.totalCookiesPerDay = 0;
-}
+'use strict';
 
-// Display the values of each shop.cookiesPerHourArray in the index.html
+// Hours of each store:
+const hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
-let seattle = new Shop([23, 65], 6.3);
-let tokyo = new Shop([3, 24], 1.2);
-let dubai = new Shop([11, 38], 3.7);
-let paris = new Shop([20, 38], 2.3);
-let Lima = new Shop([2, 16], 4.6);
-var shops = [seattle, tokyo, dubai, paris, Lima];
-console.log(shops);
+// Object Literals
+// Seattle Object
+let seattle = {
+  name: 'Seattle',
+  minMaxCustomerEachHour: [23, 65],
+  averageCookieSalesPerCustomer: 6.3,
+  cookiesSoldPerHourArray: [],
+  dailyStoreTotal: 0,
+  // A method to calculate random number of customers per hour
+  randomCustomerEachHour: function() {
+    return Math.floor(Math.random() * (this.minMaxCustomerEachHour[1] - this.minMaxCustomerEachHour[0] + 1) + this.minMaxCustomerEachHour[0]);
+  },
+  // A method to calculate and populate our number of cookies sold per hour array
+  calcCookiesSoldEachHour: function() {
+    for (let i = 0; i < hours.length; i++) {
+      var cookiesSoldPerHour = Math.ceil(this.randomCustomerEachHour() * this.averageCookieSalesPerCustomer);
+      this.cookiesSoldPerHourArray.push(cookiesSoldPerHour);
+      this.dailyStoreTotal += cookiesSoldPerHour;
+    }
+  },
+  // A method to render created lists
+  render: function() {
+    this.calcCookiesSoldEachHour();
+    // Get the Seattle Div from the sales.html
+    let storeListElement = document.querySelector('#seattle-store');
+    // Create a header for each store
+    let newHeader = document.createElement('h2');
+    var newHeaderText = document.createTextNode(`${this.name}`);
+    newHeader.appendChild(newHeaderText);
+    storeListElement.appendChild(newHeader);
+    // Create an list item, give it content and push to the dom
+    let newList = document.createElement('ul');
+    storeListElement.appendChild(newList);
+    for(let i = 0; i < hours.length; i++){
+      var newEl = document.createElement('li');
+      var newText = document.createTextNode(`${hours[i]}: ${this.cookiesSoldPerHourArray[i]}`);
+      newEl.appendChild(newText);
+      newList.appendChild(newEl);
+    }
+    // Create Total Row
+    newEl = document.createElement('li');
+    newText = document.createTextNode(`Total: ${this.dailyStoreTotal}`);
+    newEl.appendChild(newText);
+    newList.appendChild(newEl);
+  },
+};
+
+// Tokyo Object
+let tokyo = {
+  name: 'tokyo',
+  minMaxCustomerEachHour: [3, 24],
+  averageCookieSalesPerCustomer: 1.2,
+  cookiesSoldPerHourArray: [],
+  dailyStoreTotal: 0,
+  // A method to calculate random number of customers per hour
+  randomCustomerEachHour: function() {
+    return Math.floor(Math.random() * (this.minMaxCustomerEachHour[1] - this.minMaxCustomerEachHour[0] + 1) + this.minMaxCustomerEachHour[0]);
+  },
+  // A method to calculate and populate our number of cookies sold per hour array
+  calcCookiesSoldEachHour: function() {
+    for (let i = 0; i < hours.length; i++) {
+      var cookiesSoldPerHour = Math.ceil(this.randomCustomerEachHour() * this.averageCookieSalesPerCustomer);
+      this.cookiesSoldPerHourArray.push(cookiesSoldPerHour);
+      this.dailyStoreTotal += cookiesSoldPerHour;
+    }
+  },
+  // A method to render created lists
+  render: function() {
+    this.calcCookiesSoldEachHour();
+    // Get the tokyo Div from the sales.html
+    let storeListElement = document.querySelector('#tokyo-store');
+    // Create a header for each store
+    let newHeader = document.createElement('h2');
+    var newHeaderText = document.createTextNode(`${this.name}`);
+    newHeader.appendChild(newHeaderText);
+    storeListElement.appendChild(newHeader);
+    // Create an list item, give it content and push to the dom
+    let newList = document.createElement('ul');
+    storeListElement.appendChild(newList);
+    for(let i = 0; i < hours.length; i++){
+      var newEl = document.createElement('li');
+      var newText = document.createTextNode(`${hours[i]}: ${this.cookiesSoldPerHourArray[i]}`);
+      newEl.appendChild(newText);
+      newList.appendChild(newEl);
+    }
+    // Create Total Row
+    newEl = document.createElement('li');
+    newText = document.createTextNode(`Total: ${this.dailyStoreTotal}`);
+    newEl.appendChild(newText);
+    newList.appendChild(newEl);
+  },
+};
+
+// dubai Object
+let dubai = {
+  name: 'Dubai',
+  minMaxCustomerEachHour: [11, 38],
+  averageCookieSalesPerCustomer: 3.7,
+  cookiesSoldPerHourArray: [],
+  dailyStoreTotal: 0,
+  // A method to calculate random number of customers per hour
+  randomCustomerEachHour: function() {
+    return Math.floor(Math.random() * (this.minMaxCustomerEachHour[1] - this.minMaxCustomerEachHour[0] + 1) + this.minMaxCustomerEachHour[0]);
+  },
+  // A method to calculate and populate our number of cookies sold per hour array
+  calcCookiesSoldEachHour: function() {
+    for (let i = 0; i < hours.length; i++) {
+      var cookiesSoldPerHour = Math.ceil(this.randomCustomerEachHour() * this.averageCookieSalesPerCustomer);
+      this.cookiesSoldPerHourArray.push(cookiesSoldPerHour);
+      this.dailyStoreTotal += cookiesSoldPerHour;
+    }
+  },
+  // A method to render created lists
+  render: function() {
+    this.calcCookiesSoldEachHour();
+    // Get the dubai Div from the sales.html
+    let storeListElement = document.querySelector('#dubai-store');
+    // Create a header for each store
+    let newHeader = document.createElement('h2');
+    var newHeaderText = document.createTextNode(`${this.name}`);
+    newHeader.appendChild(newHeaderText);
+    storeListElement.appendChild(newHeader);
+    // Create an list item, give it content and push to the dom
+    let newList = document.createElement('ul');
+    storeListElement.appendChild(newList);
+    for(let i = 0; i < hours.length; i++){
+      var newEl = document.createElement('li');
+      var newText = document.createTextNode(`${hours[i]}: ${this.cookiesSoldPerHourArray[i]}`);
+      newEl.appendChild(newText);
+      newList.appendChild(newEl);
+    }
+    // Create Total Row
+    newEl = document.createElement('li');
+    newText = document.createTextNode(`Total: ${this.dailyStoreTotal}`);
+    newEl.appendChild(newText);
+    newList.appendChild(newEl);
+  },
+};
+
+// Paris Object
+let paris = {
+  name: 'Paris',
+  minMaxCustomerEachHour: [20, 38],
+  averageCookieSalesPerCustomer: 2.3,
+  cookiesSoldPerHourArray: [],
+  dailyStoreTotal: 0,
+  // A method to calculate random number of customers per hour
+  randomCustomerEachHour: function() {
+    return Math.floor(Math.random() * (this.minMaxCustomerEachHour[1] - this.minMaxCustomerEachHour[0] + 1) + this.minMaxCustomerEachHour[0]);
+  },
+  // A method to calculate and populate our number of cookies sold per hour array
+  calcCookiesSoldEachHour: function() {
+    for (let i = 0; i < hours.length; i++) {
+      var cookiesSoldPerHour = Math.ceil(this.randomCustomerEachHour() * this.averageCookieSalesPerCustomer);
+      this.cookiesSoldPerHourArray.push(cookiesSoldPerHour);
+      this.dailyStoreTotal += cookiesSoldPerHour;
+    }
+  },
+  // A method to render created lists
+  render: function() {
+    this.calcCookiesSoldEachHour();
+    // Get the paris Div from the sales.html
+    let storeListElement = document.querySelector('#paris-store');
+    // Create a header for each store
+    let newHeader = document.createElement('h2');
+    var newHeaderText = document.createTextNode(`${this.name}`);
+    newHeader.appendChild(newHeaderText);
+    storeListElement.appendChild(newHeader);
+    // Create an list item, give it content and push to the dom
+    let newList = document.createElement('ul');
+    storeListElement.appendChild(newList);
+    for(let i = 0; i < hours.length; i++){
+      var newEl = document.createElement('li');
+      var newText = document.createTextNode(`${hours[i]}: ${this.cookiesSoldPerHourArray[i]}`);
+      newEl.appendChild(newText);
+      newList.appendChild(newEl);
+    }
+    // Create Total Row
+    newEl = document.createElement('li');
+    newText = document.createTextNode(`Total: ${this.dailyStoreTotal}`);
+    newEl.appendChild(newText);
+    newList.appendChild(newEl);
+  },
+};
+
+// Lima Object
+let lima = {
+  name: 'Lima',
+  minMaxCustomerEachHour: [2, 16],
+  averageCookieSalesPerCustomer: 4.6,
+  cookiesSoldPerHourArray: [],
+  dailyStoreTotal: 0,
+  // A method to calculate random number of customers per hour
+  randomCustomerEachHour: function() {
+    return Math.floor(Math.random() * (this.minMaxCustomerEachHour[1] - this.minMaxCustomerEachHour[0] + 1) + this.minMaxCustomerEachHour[0]);
+  },
+  // A method to calculate and populate our number of cookies sold per hour array
+  calcCookiesSoldEachHour: function() {
+    for (let i = 0; i < hours.length; i++) {
+      var cookiesSoldPerHour = Math.ceil(this.randomCustomerEachHour() * this.averageCookieSalesPerCustomer);
+      this.cookiesSoldPerHourArray.push(cookiesSoldPerHour);
+      this.dailyStoreTotal += cookiesSoldPerHour;
+    }
+  },
+  // A method to render created lists
+  render: function() {
+    this.calcCookiesSoldEachHour();
+    // Get the lima Div from the sales.html
+    let storeListElement = document.querySelector('#lima-store');
+    // Create a header for each store
+    let newHeader = document.createElement('h2');
+    var newHeaderText = document.createTextNode(`${this.name}`);
+    newHeader.appendChild(newHeaderText);
+    storeListElement.appendChild(newHeader);
+    // Create an list item, give it content and push to the dom
+    let newList = document.createElement('ul');
+    storeListElement.appendChild(newList);
+    for(let i = 0; i < hours.length; i++){
+      var newEl = document.createElement('li');
+      var newText = document.createTextNode(`${hours[i]}: ${this.cookiesSoldPerHourArray[i]}`);
+      newEl.appendChild(newText);
+      newList.appendChild(newEl);
+    }
+    // Create Total Row
+    newEl = document.createElement('li');
+    newText = document.createTextNode(`Total: ${this.dailyStoreTotal}`);
+    newEl.appendChild(newText);
+    newList.appendChild(newEl);
+  },
+};
+
+// Call Render Methods
+seattle.render();
+tokyo.render();
+dubai.render();
+paris.render();
+lima.render();
