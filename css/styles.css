@@ -28,7 +28,7 @@ main {
   margin: 0 auto 0 auto;
 }
 
-main div, main img {
+main div {
   width: 100vw;
 }
 
