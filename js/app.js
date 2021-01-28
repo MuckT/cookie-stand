@@ -30,29 +30,27 @@ let seattle = {
     let storeListElement = document.querySelector('#seattle-store');
     // Create a header for each store
     let newHeader = document.createElement('h2');
-    var newHeaderText = document.createTextNode(`${this.name}`);
-    newHeader.appendChild(newHeaderText);
+    newHeader.textContent = `${this.name}`;
     storeListElement.appendChild(newHeader);
     // Create an list item, give it content and push to the dom
     let newList = document.createElement('ul');
     storeListElement.appendChild(newList);
     for(let i = 0; i < hours.length; i++){
       var newEl = document.createElement('li');
-      var newText = document.createTextNode(`${hours[i]}: ${this.cookiesSoldPerHourArray[i]}`);
-      newEl.appendChild(newText);
+      newEl.textContent = `${hours[i]}: ${this.cookiesSoldPerHourArray[i]}`;
       newList.appendChild(newEl);
     }
     // Create Total Row
     newEl = document.createElement('li');
-    newText = document.createTextNode(`Total: ${this.dailyStoreTotal}`);
-    newEl.appendChild(newText);
+    newEl.textContent = `Total: ${this.dailyStoreTotal}`;
+    newEl.classList += 'total';
     newList.appendChild(newEl);
   },
 };
 
 // Tokyo Object
 let tokyo = {
-  name: 'tokyo',
+  name: 'Tokyo',
   minMaxCustomerEachHour: [3, 24],
   averageCookieSalesPerCustomer: 1.2,
   cookiesSoldPerHourArray: [],
@@ -72,26 +70,24 @@ let tokyo = {
   // A method to render created lists
   render: function() {
     this.calcCookiesSoldEachHour();
-    // Get the tokyo Div from the sales.html
+    // Get the Seattle Div from the sales.html
     let storeListElement = document.querySelector('#tokyo-store');
     // Create a header for each store
     let newHeader = document.createElement('h2');
-    var newHeaderText = document.createTextNode(`${this.name}`);
-    newHeader.appendChild(newHeaderText);
+    newHeader.textContent = `${this.name}`;
     storeListElement.appendChild(newHeader);
     // Create an list item, give it content and push to the dom
     let newList = document.createElement('ul');
     storeListElement.appendChild(newList);
     for(let i = 0; i < hours.length; i++){
       var newEl = document.createElement('li');
-      var newText = document.createTextNode(`${hours[i]}: ${this.cookiesSoldPerHourArray[i]}`);
-      newEl.appendChild(newText);
+      newEl.textContent = `${hours[i]}: ${this.cookiesSoldPerHourArray[i]}`;
       newList.appendChild(newEl);
     }
     // Create Total Row
     newEl = document.createElement('li');
-    newText = document.createTextNode(`Total: ${this.dailyStoreTotal}`);
-    newEl.appendChild(newText);
+    newEl.textContent = `Total: ${this.dailyStoreTotal}`;
+    newEl.classList += 'total';
     newList.appendChild(newEl);
   },
 };
@@ -118,26 +114,24 @@ let dubai = {
   // A method to render created lists
   render: function() {
     this.calcCookiesSoldEachHour();
-    // Get the dubai Div from the sales.html
+    // Get the Seattle Div from the sales.html
     let storeListElement = document.querySelector('#dubai-store');
     // Create a header for each store
     let newHeader = document.createElement('h2');
-    var newHeaderText = document.createTextNode(`${this.name}`);
-    newHeader.appendChild(newHeaderText);
+    newHeader.textContent = `${this.name}`;
     storeListElement.appendChild(newHeader);
     // Create an list item, give it content and push to the dom
     let newList = document.createElement('ul');
     storeListElement.appendChild(newList);
     for(let i = 0; i < hours.length; i++){
       var newEl = document.createElement('li');
-      var newText = document.createTextNode(`${hours[i]}: ${this.cookiesSoldPerHourArray[i]}`);
-      newEl.appendChild(newText);
+      newEl.textContent = `${hours[i]}: ${this.cookiesSoldPerHourArray[i]}`;
       newList.appendChild(newEl);
     }
     // Create Total Row
     newEl = document.createElement('li');
-    newText = document.createTextNode(`Total: ${this.dailyStoreTotal}`);
-    newEl.appendChild(newText);
+    newEl.textContent = `Total: ${this.dailyStoreTotal}`;
+    newEl.classList += 'total';
     newList.appendChild(newEl);
   },
 };
@@ -164,26 +158,24 @@ let paris = {
   // A method to render created lists
   render: function() {
     this.calcCookiesSoldEachHour();
-    // Get the paris Div from the sales.html
+    // Get the Seattle Div from the sales.html
     let storeListElement = document.querySelector('#paris-store');
     // Create a header for each store
     let newHeader = document.createElement('h2');
-    var newHeaderText = document.createTextNode(`${this.name}`);
-    newHeader.appendChild(newHeaderText);
+    newHeader.textContent = `${this.name}`;
     storeListElement.appendChild(newHeader);
     // Create an list item, give it content and push to the dom
     let newList = document.createElement('ul');
     storeListElement.appendChild(newList);
     for(let i = 0; i < hours.length; i++){
       var newEl = document.createElement('li');
-      var newText = document.createTextNode(`${hours[i]}: ${this.cookiesSoldPerHourArray[i]}`);
-      newEl.appendChild(newText);
+      newEl.textContent = `${hours[i]}: ${this.cookiesSoldPerHourArray[i]}`;
       newList.appendChild(newEl);
     }
     // Create Total Row
     newEl = document.createElement('li');
-    newText = document.createTextNode(`Total: ${this.dailyStoreTotal}`);
-    newEl.appendChild(newText);
+    newEl.textContent = `Total: ${this.dailyStoreTotal}`;
+    newEl.classList += 'total';
     newList.appendChild(newEl);
   },
 };
@@ -210,26 +202,24 @@ let lima = {
   // A method to render created lists
   render: function() {
     this.calcCookiesSoldEachHour();
-    // Get the lima Div from the sales.html
+    // Get the Seattle Div from the sales.html
     let storeListElement = document.querySelector('#lima-store');
     // Create a header for each store
     let newHeader = document.createElement('h2');
-    var newHeaderText = document.createTextNode(`${this.name}`);
-    newHeader.appendChild(newHeaderText);
+    newHeader.textContent = `${this.name}`;
     storeListElement.appendChild(newHeader);
     // Create an list item, give it content and push to the dom
     let newList = document.createElement('ul');
     storeListElement.appendChild(newList);
     for(let i = 0; i < hours.length; i++){
       var newEl = document.createElement('li');
-      var newText = document.createTextNode(`${hours[i]}: ${this.cookiesSoldPerHourArray[i]}`);
-      newEl.appendChild(newText);
+      newEl.textContent = `${hours[i]}: ${this.cookiesSoldPerHourArray[i]}`;
       newList.appendChild(newEl);
     }
     // Create Total Row
     newEl = document.createElement('li');
-    newText = document.createTextNode(`Total: ${this.dailyStoreTotal}`);
-    newEl.appendChild(newText);
+    newEl.classList += 'total';
+    newEl.textContent = `Total: ${this.dailyStoreTotal}`;
     newList.appendChild(newEl);
   },
 };
