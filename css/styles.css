@@ -1,3 +1,89 @@
 body {
+  background-color: #b7b7a4;
+  line-height: unset;
+  /* grid container settings */
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100); /* iOS Chrome  Fix */
+  display: grid;
+  grid-template-rows: 25px auto 20px;
+  grid-template-columns: 1fr;
+  grid-template-areas: 
+    'header'
+    'main'
+    'footer';
+}
+
+header {
+  grid-area: header;
+  font-weight: 800;
+  font-size: 18px;
   background-color: grey;
+  color: salmon;
+}
+
+main {
+  grid-area: main;
+  overflow: auto;
+  max-width: 960px;
+  margin: 0 auto 0 auto;
+}
+
+main div, main img {
+  width: 100vw;
+}
+
+footer {
+  grid-area: footer;
+  text-align: center;
+  background-color: black;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+main::-webkit-scrollbar {
+  display: none;
+}
+
+main {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+
+footer a {
+  color: salmon;
+}
+
+
+abbr, a {
+  text-decoration: none;
+  color:black;
+}
+
+header h1 {
+  font-size: 18px;
+  font-weight: 800;
+  min-height: 25px;
+  background-color: #000000;
+  color: salmon;
+  text-align: center;
+  width: 100%;
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: 900;
+  margin-top: 1rem;
+}
+
+p {
+  margin: .5rem .5rem 1rem .5rem;
+}
+
+.total {
+  font-weight: bold;
+}
+
+img {
+  width: 100%; 
+  height: auto;
 }
