@@ -25,7 +25,6 @@ main {
   grid-area: main;
   overflow: auto;
   max-width: 960px;
-  margin: 0 auto 0 auto;
 }
 
 footer {
@@ -90,8 +89,21 @@ img {
   height: auto;
 }
 
-ul {
-  -webkit-columns: 4;
-  -moz-columns: 4;
-  columns: 4;
+table, th, td, tr {
+  border: 1px solid black;
+  padding: 1rem;
+}
+
+tfoot tr:last-of-type {
+  font-weight: bold;
+}
+
+#sales-table {
+  overflow: scroll;
+}
+
+@media (min-width: 960px) {
+  main {
+    margin: 0 auto 0 auto;
+  }
 }
