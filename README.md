@@ -1,4 +1,4 @@
-# LAB - 06
+# LAB - 06 & 07
 
 ## Cookie Stand
 
@@ -10,9 +10,20 @@ A sample website for using objects for dynamically creating sales data for the f
 
 * [Reset CSS](https://meyerweb.com/eric/tools/css/reset/)
 * [Math.random() - Mozilla](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random)
+* [Media Quries](https://www.w3schools.com/cssref/css3_pr_mediaquery.asp)
 
 ### Reflections and Comments
 
 #### LAB - 06 Reflections
 
-* TODO Add Reflections
+* This project was the first one we added elements to the DOM from JavaScript. It was a challenge for me, and I found some of the methods covered in the book a bit verbose. The code help we received from Ryan and classmates helped clarify an easier way.
+
+* This was certainly a jump up in what we've learned. I found it challenging to render elements in the DOM, but overall it was a really fun and challenging lab building on things I hadn't done before.
+
+* It took around 6 hours to complete this assignment. I thought it would take less time; however, working with classmates and doing some CSS fixes ate up a bit of my time.
+
+#### LAB - 07 Reflections
+
+* I enjoyed this lab using constructors and prototypes as there was a lot repetition and it resulted in cleaner code. I hadn't used prototypes to my knowledge before so that was something new. I also added some media queries to help with the table formatting on mobile. I look forward to spending more time on some of the stretch goals including using a control curve on the customer flow per hour.
+
+* I also having worked with dynamically generating tables before. The unexpected impact of tables on my grid layout of page was a fun thing to find a solution to.
