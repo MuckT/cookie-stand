@@ -9,34 +9,30 @@ function Store(name, minMaxCustomerEachHour, averageCookieSalesPerCustomer) {
   this.minMaxCustomerEachHour = minMaxCustomerEachHour;
   this.averageCookieSalesPerCustomer = averageCookieSalesPerCustomer;
   this.cookiesSoldPerHourArray = [];
+  this.randomCustomerEachHour = function() {
+    return Math.floor(Math.random() * (this.minMaxCustomerEachHour[1] - this.minMaxCustomerEachHour[0] + 1) + this.minMaxCustomerEachHour[0]);
+  };
+  this.calcCookiesSoldEachHour = function() {
+    for (let i = 0; i < hours.length; i++) {
+      var cookiesSoldPerHour = Math.ceil(this.randomCustomerEachHour() * this.averageCookieSalesPerCustomer);
+      this.cookiesSoldPerHourArray.push(cookiesSoldPerHour);
+      this.dailyStoreTotal += cookiesSoldPerHour;
+    }
+  };
+  this.render = function() {
+    this.calcCookiesSoldEachHour();
+    // Get the table body from the 'sales.html'
+    let storeTableRowElement = document.querySelector('#sales-table tbody');
+    let newRow = document.createElement('tr');
+    newRow.innerHTML = `${this.name}`;
+    storeTableRowElement.append(newRow);
+    for(let i = 0; i < hours.length; i++){
+      let newCell = document.createElement('td');
+      newCell.innerText = `${this.cookiesSoldPerHourArray[i]}`;
+      newRow.append(newCell);
+    }
+  };
 }
-
-// Add Prototype Functions
-Store.prototype.randomCustomerEachHour = function() {
-  return Math.floor(Math.random() * (this.minMaxCustomerEachHour[1] - this.minMaxCustomerEachHour[0] + 1) + this.minMaxCustomerEachHour[0]);
-};
-
-Store.prototype.calcCookiesSoldEachHour = function() {
-  for (let i = 0; i < hours.length; i++) {
-    var cookiesSoldPerHour = Math.ceil(this.randomCustomerEachHour() * this.averageCookieSalesPerCustomer);
-    this.cookiesSoldPerHourArray.push(cookiesSoldPerHour);
-    this.dailyStoreTotal += cookiesSoldPerHour;
-  }
-};
-
-Store.prototype.render = function() {
-  this.calcCookiesSoldEachHour();
-  // Get the table body from the 'sales.html'
-  let storeTableRowElement = document.querySelector('#sales-table tbody');
-  let newRow = document.createElement('tr');
-  newRow.innerHTML = `${this.name}`;
-  storeTableRowElement.append(newRow);
-  for(let i = 0; i < hours.length; i++){
-    let newCell = document.createElement('td');
-    newCell.innerText = `${this.cookiesSoldPerHourArray[i]}`;
-    newRow.append(newCell);
-  }
-};
 
 // Create Store Objects
 let seattle = new Store('Seattle',[23, 65], 6.3);
