@@ -38,11 +38,11 @@ function Store(name, minMaxCustomerEachHour, averageCookieSalesPerCustomer) {
 }
 
 // Create Store Objects - Name, [minCustomerPerHour, maxCustomerPerHour], avgCookiesSoldPerCustomer
-let seattle = new Store('Seattle', [23, 65], 6.3);
-let tokyo = new Store('Tokyo', [3, 24], 1.2);
-let dubai = new Store('Dubai', [11, 38], 3.7);
-let paris = new Store('Paris', [20, 38], 2.3);
-let Lima = new Store('Lima', [2, 16], 4.6);
+new Store('Seattle', [23, 65], 6.3);
+new Store('Tokyo', [3, 24], 1.2);
+new Store('Dubai', [11, 38], 3.7);
+new Store('Paris', [20, 38], 2.3);
+new Store('Lima', [2, 16], 4.6);
 
 
 // Render Hours
@@ -57,8 +57,8 @@ function renderStoreHeaders(storeHours = hours) {
   }
 }
 
+// Render Totals After Store Objects Are Rendered
 function renderStoreFooter(storeHours = hours) {
-  // Render Totals Do After Store Objects are Rendered
   let storeTableFooter = document.querySelector('#sales-table tfoot');
   let newFooter = document.createElement('tr');
   newFooter.innerHTML = 'Totals';
