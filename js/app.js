@@ -10,6 +10,7 @@ function Store(name, minMaxCustomerEachHour, averageCookieSalesPerCustomer) {
   this.minMaxCustomerEachHour = minMaxCustomerEachHour;
   this.averageCookieSalesPerCustomer = averageCookieSalesPerCustomer;
   this.cookiesSoldPerHourArray = [];
+  this.dailyStoreTotal = 0;
   this.randomCustomerEachHour = function() {
     return Math.floor(Math.random() * (this.minMaxCustomerEachHour[1] - this.minMaxCustomerEachHour[0] + 1) + this.minMaxCustomerEachHour[0]);
   };
@@ -32,6 +33,10 @@ function Store(name, minMaxCustomerEachHour, averageCookieSalesPerCustomer) {
       newCell.innerText = `${this.cookiesSoldPerHourArray[i]}`;
       newRow.append(newCell);
     }
+    let newCell = document.createElement('td');
+    newCell.classList += 'total';
+    newCell.innerHTML = `${this.dailyStoreTotal}`;
+    newRow.append(newCell);
   };
   stores.push(this);
   this.render();
@@ -55,24 +60,34 @@ function renderStoreHeaders(storeHours = hours) {
     newHeader.innerHTML = storeHours[i];
     storeTableHeader.append(newHeader);
   }
+  newHeader = document.createElement('th');
+  newHeader.classList += 'total';
+  newHeader.innerText = 'Total';
+  storeTableHeader.append(newHeader);
 }
 
 // Render Totals After Store Objects Are Rendered
 function renderStoreFooter(storeHours = hours) {
   let storeTableFooter = document.querySelector('#sales-table tfoot');
   let newFooter = document.createElement('tr');
-  newFooter.innerHTML = 'Totals';
+  newFooter.innerHTML = 'Total';
   storeTableFooter.append(newFooter);
+  var allSales = 0;
   for (let i = 0; i < storeHours.length; i++) {
     var total = 0;
     var totalsToSum = document.querySelectorAll(`tbody tr td:nth-of-type(${i + 1})`);
+    console.log(totalsToSum);
     for (let j = 0; j < totalsToSum.length; j++) {
       total += +totalsToSum[j].innerHTML;
+      allSales += +totalsToSum[j].innerHTML;
     }
-    let newFooterCell = document.createElement('td');
+    var newFooterCell = document.createElement('td');
     newFooterCell.innerHTML = `${total}`;
     newFooter.append(newFooterCell);
   }
+  newFooterCell = document.createElement('td');
+  newFooterCell.innerHTML = `${allSales}`;
+  newFooter.append(newFooterCell);
 }
 
 // Call Render Functions
