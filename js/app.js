@@ -44,7 +44,7 @@ function calcStoreTotals(localStores = stores) {
     for (let j = 0; j < hours.length; j ++) {
       totalSales += localStores[i].cookieSalesPerStore[j];
     }
-    // Push Total Sales to Relevant Cookie Sales Per Store
+    // Push Total Sales to Relevant Cookie Store
     localStores[i].cookieSalesPerStore.push(totalSales);
     totalSaleMatrix.push(localStores[i].cookieSalesPerStore);
   }
