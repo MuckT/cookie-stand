@@ -11,6 +11,8 @@ A sample website for using objects for dynamically creating sales data for the f
 * [Reset CSS](https://meyerweb.com/eric/tools/css/reset/)
 * [Math.random() - Mozilla](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random)
 * [Media Quries](https://www.w3schools.com/cssref/css3_pr_mediaquery.asp)
+* [Auto-Sizing Columns in CSS Grid: `auto-fill` vs `auto-fit`](https://css-tricks.com/auto-sizing-columns-css-grid-auto-fill-vs-auto-fit/)
+* [Mailto Links](https://css-tricks.com/snippets/html/mailto-links/)
 
 ### Reflections and Comments
 
