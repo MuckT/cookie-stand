@@ -1,10 +1,16 @@
 /* Entire Document*/
+/* Font Things */
 :root {
+  font-family: 'Roboto Slab', serif;
+}
+
+.data {
   font-family: 'Roboto', sans-serif;
 }
 
 html {
   height: 100%;
+  scroll-padding-top: 100px;
 }
 
 body {
@@ -17,7 +23,11 @@ body {
     'header'
     'main'
     'footer';
-  background-color: bisque;
+  background-color: #d7d8d9;
+}
+
+li > img {
+  box-shadow: 5px 5px 5px salmon;
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
@@ -70,7 +80,7 @@ main {
   grid-area: main;
   overflow: auto;
   max-width: 1020px;
-  margin:auto;
+  margin: 0 auto 0 auto;
 }
 
 main ul {
@@ -78,6 +88,7 @@ main ul {
   grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
   grid-gap: 30px;
   margin: 15px auto 15px auto;
+  padding: 10px;
 }
 
 img {
@@ -97,7 +108,6 @@ main h1 {
 }
 
 main h2 {
-  font-size: 18px;
   margin: 15px auto 15px auto;
 }
 
@@ -137,10 +147,32 @@ footer a {
 
 p {
   margin: .5rem .5rem 1rem .5rem;
+  font-family: 'Comfortaa', cursive;
+  text-emphasis: bold;
 }
 
 
 /* Sales Table */
+#sales-table thead, #sales-table tfoot {
+  text-align: left;
+}
+
+#sales-table tbody tr {
+  border-bottom: thin solid #dddddd;
+}
+
+#sales-table tbody tr:nth-child(odd) {
+  background-color: #aaaaaa;
+}
+
+#sales-table tbody tr:nth-child(even) {
+  background-color: #f7bba1;
+}
+
+#sales-table tbody tr:last-of-type {
+  border-bottom: 2px solid black;
+}
+
 .total {
   font-weight: bold;
 }
@@ -159,10 +191,23 @@ tfoot tr:last-of-type {
   max-width: 100vw;
 }
 
-/* Mobile Media Query TODO*/
+/* Mobile Media Queries*/
+@media (max-width: 649.9px) {
+  main {
+    font-size: 16px;
+  }
+
+  main ul {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 30px;
+    margin: 15px auto 15px auto;
+    padding: 10px;
+  }
+}
+
 @media (max-width: 420px) {
   main h1 {
     font-size: 16px;
-    font-weight: bold;
   }
 }
