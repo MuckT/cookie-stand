@@ -1,4 +1,4 @@
-# LAB - 06 & 07
+# LAB - 06, 07 & 08
 
 ## Cookie Stand
 
@@ -37,4 +37,3 @@ A sample website for using objects for dynamically creating sales data for the f
 * I refactored the table logic to create the table using a matrix instead of grabbing values from the HTML.
 
 * I took the time to style the table and homepage to be mobile friendly additionally I implemented CSS grid to make the image displays simple and switched the grid layout based on a media query.
-
