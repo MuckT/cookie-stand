@@ -170,7 +170,9 @@ function handleSubmit(event){
     new Store(`${storeName}`, [minCustomerPerHour, maxCustomerPerHour], avgCookiesSoldPerCustomer);
     var inputs = document.querySelectorAll('#store-management input');
     for (let i = 0; i < inputs.length; i++) {
-      inputs[i].value = null;
+      if(inputs[i].type !== 'submit') {
+        inputs[i].value = null;
+      }
     }
     clearTable();
     calcStoreTotals();
