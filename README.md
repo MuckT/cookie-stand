@@ -25,6 +25,7 @@ A sample website for using objects for dynamically creating sales data for the f
 * [Natural Numbers](https://en.wikipedia.org/wiki/Natural_number)
 * [Event.preventDefault()](https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault)
 * [HTMLFormElement.reset()](https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/reset)
+* [Text-Overflow](https://developer.mozilla.org/en-US/docs/Web/CSS/text-overflow)
 
 ### Reflections and Comments
 

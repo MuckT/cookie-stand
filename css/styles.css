@@ -79,7 +79,7 @@ header img {
 main {
   grid-area: main;
   overflow: auto;
-  max-width: 1020px;
+  max-width: 1140px;
   margin: 0 auto 0 auto;
 }
 
@@ -157,8 +157,12 @@ p {
 
 
 /* Sales Table */
-#sales-table thead, #sales-table tfoot {
+#sales-table thead, #sales-table tfoot, #sales-table tbody th {
   text-align: left;
+}
+
+#sale-table tbody td{
+  text-align: right;
 }
 
 #sales-table tbody tr {
@@ -183,6 +187,12 @@ p {
 
 table, th, td, tr {
   padding: .9rem;
+}
+
+tbody th {
+  max-width: 75px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 tfoot tr:last-of-type {
