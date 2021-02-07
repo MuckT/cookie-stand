@@ -111,7 +111,11 @@ main h2 {
   margin: 15px auto 15px auto;
 }
 
-#locations, #hours {
+main h3 {
+  font-size: 20px;
+}
+
+#locations, #hours, #store-management {
   border: black solid;
   border-radius: 4px;
   background: salmon;
@@ -127,7 +131,7 @@ address, #locations h3 {
 }
 
 address, #locations address {
-  font-size: 12px;
+  font-size: 16px;
 }
 
 #contact {
@@ -191,16 +195,51 @@ tfoot tr:last-of-type {
   max-width: 100vw;
 }
 
+/* Sales Table Input */
+/* Hide Input Arrows - Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Hide Input Arrows - Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+#store-management {
+  margin: 20px auto;
+  padding: 10px;
+  width: 80%;
+}
+
+#store-management fieldset{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(75px, 1fr));
+  grid-gap: 20px;
+  margin: 15px auto 15px auto;
+  padding: 10px;
+  width: 88%;
+}
+
+#store-management [type="submit"] {
+  display: block;
+  margin: 0 auto;
+  font-size: 20px;
+}
+
+
 /* Mobile Media Queries*/
 @media (max-width: 649.9px) {
   main {
     font-size: 16px;
   }
 
-  main ul {
+  main ul, #store-management fieldset {
     display: grid;
     grid-template-columns: 1fr;
-    grid-gap: 30px;
+    grid-gap: 20px;
     margin: 15px auto 15px auto;
     padding: 10px;
   }
@@ -209,5 +248,8 @@ tfoot tr:last-of-type {
 @media (max-width: 420px) {
   main h1 {
     font-size: 16px;
+  }
+  main h2 {
+    font-size: 14px;
   }
 }

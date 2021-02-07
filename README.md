@@ -1,4 +1,4 @@
-# LAB - 06, 07 & 08
+# LAB - 06, 07, 08 & 09
 
 ## Cookie Stand
 
@@ -15,6 +15,16 @@ A sample website for using objects for dynamically creating sales data for the f
 * [Mailto Links](https://css-tricks.com/snippets/html/mailto-links/)
 * [CSS Box Shadow](https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow)
 * [Creating beautiful HTML tables with CSS](https://dev.to/dcodeyt/creating-beautiful-html-tables-with-css-428l)
+* [Prevent input type=“number” getting negative values?](https://stackoverflow.com/a/46039201/7967484)
+* [Check if a number has a decimal place/is a whole number](https://stackoverflow.com/a/2304062/7967484)
+* [How TO - Hide Arrows From Input Number](https://www.w3schools.com/howto/howto_css_hide_arrow_number.asp)
+* [Is there any way to prevent input type=“number” getting negative values?](https://stackoverflow.com/a/46039201/7967484)
+* [JavaScript DOM — Remove all children of an element](https://attacomsian.com/blog/javascript-dom-remove-all-children-of-an-element)
+* [Is there a float input type in HTML5?](https://stackoverflow.com/a/19012837/7967484)
+* [Automatic HTML Form Validation](https://www.w3schools.com/js/js_validation.asp)
+* [Natural Numbers](https://en.wikipedia.org/wiki/Natural_number)
+* [Event.preventDefault()](https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault)
+* [HTMLFormElement.reset()](https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/reset)
 
 ### Reflections and Comments
 
@@ -37,3 +47,13 @@ A sample website for using objects for dynamically creating sales data for the f
 * I refactored the table logic to create the table using a matrix instead of grabbing values from the HTML.
 
 * I took the time to style the table and homepage to be mobile friendly additionally I implemented CSS grid to make the image displays simple and switched the grid layout based on a media query.
+
+#### LAB - 09 Reflections
+
+* Took the time to add additional validation to the table and throw alerts and clear select fields. Cleared the name field in user submission of a duplicate name. Cleared the minimum customers per hour and maximum customers per hour if the minimum customers per hour was greater than then maximum customers per hour.
+
+* I used localStorage to retain stores added to the table on page navigation.
+
+* Also Added additional styling to the a store submission form to display nicely on desktop and mobile.
+
+* Cleared out table data and redrew the table with the new stores on submission of a store. Ideally I'd add only the new row needed, but this is working for now. In the future I'll refactor the calcStoreTotals function.
