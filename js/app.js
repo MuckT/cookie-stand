@@ -36,7 +36,6 @@ if (localStorage.getItem('Store_List') === null) {
   new Store('Lima', [2, 16], 4.6);
 }
 
-
 // Calculate Totals Using a Matrix
 function calcStoreTotals(localStores = JSON.parse(localStorage.getItem('Store_List')), storeHours = hours) {
   totalSaleMatrix = [];
@@ -50,13 +49,11 @@ function calcStoreTotals(localStores = JSON.parse(localStorage.getItem('Store_Li
     }
     // Check that we're not pushing additional columns
     if (localStores[i].cookieSalesPerStore.length <= storeHours.length) {
-      console.log('localStores[i].cookiesSalesPerStore', localStores[i].cookieSalesPerStore);
       // Push Total Sales to Relevant Cookie Store
       localStores[i].cookieSalesPerStore.push(totalSales);
     }
     totalSaleMatrix.push(localStores[i].cookieSalesPerStore);
   }
-  console.table(totalSaleMatrix);
   // Sum All Stores Hourly Total Per Hour
   for(let i = 0; i < totalSaleMatrix[0].length; i++) {
     let hourlyTotal = 0;
@@ -144,31 +141,54 @@ function renderAll() {
 calcStoreTotals();
 renderAll();
 
+// Form Input
 // Get Form Input
 let myForm = document.querySelector('#store-management form');
 
 // Handle Form Input
 function handleSubmit(event){
   event.preventDefault();
-  var validEntry = true;
+  var errors = [];
   var storeName = event.target['store-name'].value;
   var minCustomerPerHour = +event.target['minimum-customer-per-hour'].value;
   var maxCustomerPerHour = +event.target['maximum-customer-per-hour'].value;
   var avgCookiesSoldPerCustomer = +event.target['average-cookies-per-customer'].value;
-  // Prevent Stores with duplicate names from being added
+  // Validation Errors
+  // Check For Duplicate Names
   for (let i = 0; i < stores.length; i++) {
     if (stores[i].name === storeName) {
-      validEntry = false;
+      errors.push('Matching Name');
       break;
     }
   }
-  if (validEntry) {
+  // Check Min Customers Is Less Than Max
+  if (maxCustomerPerHour < minCustomerPerHour) {
+    errors.push('Minimum Customers Greater Than Maximum Customers');
+  }
+  // If Errors Array Is Empty
+  if (errors.length === 0) {
     new Store(`${storeName}`, [minCustomerPerHour, maxCustomerPerHour], avgCookiesSoldPerCustomer);
+    var inputs = document.querySelectorAll('#store-management input');
+    for (let i = 0; i < inputs.length; i++) {
+      inputs[i].value = null;
+    }
     clearTable();
     calcStoreTotals();
     renderAll();
   } else {
-    alert('Please Enter a non-duplicate Store Name');
+    // Error Handling #TODO Make Better
+    if(errors.includes('Minimum Customers Greater Than Maximum Customers')) {
+      let maxCustomer = document.querySelector('#maximum-customer-per-hour');
+      let minCustomer = document.querySelector('#minimum-customer-per-hour');
+      minCustomer.value = null;
+      maxCustomer.value = null;
+      alert('Please Set The Minimum Customers Below Or Equal To The Maximum Customers');
+    }
+    if(errors.includes('Matching Name')) {
+      let storeName = document.querySelector('#store-name');
+      storeName.value = null;
+      alert('Please Enter a non-duplicate Store Name');
+    }
   }
 }
 
