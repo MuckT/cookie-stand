@@ -15,6 +15,15 @@ A sample website for using objects for dynamically creating sales data for the f
 * [Mailto Links](https://css-tricks.com/snippets/html/mailto-links/)
 * [CSS Box Shadow](https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow)
 * [Creating beautiful HTML tables with CSS](https://dev.to/dcodeyt/creating-beautiful-html-tables-with-css-428l)
+* [Prevent input type=“number” getting negative values?](https://stackoverflow.com/a/46039201/7967484)
+* [Check if a number has a decimal place/is a whole number](https://stackoverflow.com/a/2304062/7967484)
+* [How TO - Hide Arrows From Input Number](https://www.w3schools.com/howto/howto_css_hide_arrow_number.asp)
+* [Is there any way to prevent input type=“number” getting negative values?](https://stackoverflow.com/a/46039201/7967484)
+* [JavaScript DOM — Remove all children of an element](https://attacomsian.com/blog/javascript-dom-remove-all-children-of-an-element)
+* [Is there a float input type in HTML5?](https://stackoverflow.com/a/19012837/7967484)
+* [Automatic HTML Form Validation](https://www.w3schools.com/js/js_validation.asp)
+* [Natural Numbers](https://en.wikipedia.org/wiki/Natural_number)
+* [Event.preventDefault()](https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault)
 
 ### Reflections and Comments
 
