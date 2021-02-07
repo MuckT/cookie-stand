@@ -33,12 +33,34 @@
   </header>
   <main>
     <h1>Salmon Cookie Sales</h1>
+
     <div id="sales-table">
       <table class="data">
         <thead></thead>
         <tbody></tbody>
         <tfoot></tfoot>
       </table>
+    </div>
+    <div id="store-management">
+      <form>
+        <fieldset>
+          <label for="store-name">Store Location</label>
+          <input type="text" name="store-name" placeholder="Enter the Store Name" id="store-name"
+            pattern=".{2,}" title="2 characters minimum" required>
+          <label for="minimum-customer-per-hour">Minimum Customer Per Hour</label>
+          <input type="number" name="minimum-customer-per-hour" placeholder="Enter Minimum Customer Per Hour"
+            id="minimum-customer-per-hour" min="0" oninput="this.value % 1 != 0"
+            title="Must be a whole number 0, 1, 2, 3" required>
+          <label for="maximum-cookies-per-hour">Maximum Customer Per Hour</label>
+          <input type="number" name="maximum-customer-per-hour" placeholder="Enter Maximum Customer Per Hour"
+            id="maximum-customer-per-hour" min="0" oninput="this.value % 1 != 0"
+            title="Must be a whole number 0, 1, 2, 3" required>
+          <label for="average-cookies-per-customer">Average Cookies Per Customer</label>
+          <input type="number" name="average-cookies-per-customer" placeholder="Enter Average Cookies Per Customer"
+            id="average-cookies-per-customer" min="1" step="0.01" title="Must be a positive whole number" required>
+        </fieldset>
+        <input type="submit" value="Submit">
+      </form>
     </div>
   </main>
   <footer>
