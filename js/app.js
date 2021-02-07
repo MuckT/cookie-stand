@@ -12,20 +12,27 @@ function Store(name, minMaxCustomerEachHour, averageCookieSalesPerCustomer) {
   this.averageCookieSalesPerCustomer = averageCookieSalesPerCustomer;
   this.cookieSalesPerStore = [];
   this.dailyStoreTotal = 0;
-  this.randomCustomerEachHour = function() {
-    return Math.floor(Math.random() * (this.minMaxCustomerEachHour[1] - this.minMaxCustomerEachHour[0] + 1) + this.minMaxCustomerEachHour[0]);
-  };
-  this.calcCookiesSoldEachHour = function() {
-    for (let i = 0; i < hours.length; i++) {
-      var cookiesSoldPerHour = Math.ceil(this.randomCustomerEachHour() * this.averageCookieSalesPerCustomer);
-      this.cookieSalesPerStore.push(cookiesSoldPerHour);
-      this.dailyStoreTotal += cookiesSoldPerHour;
-    }
-  };
+  this.render();
+}
+
+//ProtoTypes
+Store.prototype.randomCustomerEachHour = function() {
+  return Math.floor(Math.random() * (this.minMaxCustomerEachHour[1] - this.minMaxCustomerEachHour[0] + 1) + this.minMaxCustomerEachHour[0]);
+};
+
+Store.prototype.calcCookiesSoldEachHour = function() {
+  for (let i = 0; i < hours.length; i++) {
+    var cookiesSoldPerHour = Math.ceil(this.randomCustomerEachHour() * this.averageCookieSalesPerCustomer);
+    this.cookieSalesPerStore.push(cookiesSoldPerHour);
+    this.dailyStoreTotal += cookiesSoldPerHour;
+  }
+};
+
+Store.prototype.render = function() {
   this.calcCookiesSoldEachHour();
   stores.push(this);
   localStorage.setItem('Store_List', JSON.stringify(stores));
-}
+};
 
 // Create Store Objects If Not Present In localStorage - Name, [minCustomerPerHour, maxCustomerPerHour], avgCookiesSoldPerCustomer
 if (localStorage.getItem('Store_List') === null) {
@@ -148,10 +155,6 @@ function renderAll() {
 calcStoreTotals();
 renderAll();
 
-// Form Input
-// Get Form Input
-let myForm = document.querySelector('#store-management form');
-
 // Handle Form Input
 function handleSubmit(event){
   event.preventDefault();
@@ -175,12 +178,7 @@ function handleSubmit(event){
   // If Errors Array Is Empty
   if (errors.length === 0) {
     new Store(`${storeName}`, [minCustomerPerHour, maxCustomerPerHour], avgCookiesSoldPerCustomer);
-    var inputs = document.querySelectorAll('#store-management input');
-    for (let i = 0; i < inputs.length; i++) {
-      if(inputs[i].type !== 'submit') {
-        inputs[i].value = null;
-      }
-    }
+    event.target.reset();
     clearTable();
     calcStoreTotals();
     renderAll();
@@ -200,6 +198,9 @@ function handleSubmit(event){
     }
   }
 }
+
+// Get Form Input
+let myForm = document.querySelector('#store-management form');
 
 // Add Form Event Listener
 myForm.addEventListener('submit', handleSubmit);
