@@ -1,4 +1,4 @@
-# LAB - 06, 07 & 08
+# LAB - 06, 07, 08 & 09
 
 ## Cookie Stand
 
@@ -47,3 +47,13 @@ A sample website for using objects for dynamically creating sales data for the f
 * I refactored the table logic to create the table using a matrix instead of grabbing values from the HTML.
 
 * I took the time to style the table and homepage to be mobile friendly additionally I implemented CSS grid to make the image displays simple and switched the grid layout based on a media query.
+
+#### LAB - 09 Reflections
+
+* Took the time to add additional validation to the table and throw alerts and clear select fields. Cleared the name field in user submission of a duplicate name. Cleared the minimum customers per hour and maximum customers per hour if the minimum customers per hour was greater than then maximum customers per hour.
+
+* I used localStorage to retain stores added to the table on page navigation.
+
+* Also Added additional styling to the a store submission form to display nicely on desktop and mobile.
+
+* Cleared out table data and redrew the table with the new stores on submission of a store. Ideally I'd add only the new row needed, but this is working for now. In the future I'll refactor the calcStoreTotals function.

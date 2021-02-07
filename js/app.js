@@ -27,7 +27,7 @@ function Store(name, minMaxCustomerEachHour, averageCookieSalesPerCustomer) {
   localStorage.setItem('Store_List', JSON.stringify(stores));
 }
 
-// Create Store Objects If not present in localStorage - Name, [minCustomerPerHour, maxCustomerPerHour], avgCookiesSoldPerCustomer
+// Create Store Objects If Not Present In localStorage - Name, [minCustomerPerHour, maxCustomerPerHour], avgCookiesSoldPerCustomer
 if (localStorage.getItem('Store_List') === null) {
   new Store('Seattle', [23, 65], 6.3);
   new Store('Tokyo', [3, 24], 1.2);
@@ -36,18 +36,18 @@ if (localStorage.getItem('Store_List') === null) {
   new Store('Lima', [2, 16], 4.6);
 }
 
-// Calculate Totals Using a Matrix
+// Calculate Totals Using A Matrix
 function calcStoreTotals(localStores = JSON.parse(localStorage.getItem('Store_List')), storeHours = hours) {
   totalSaleMatrix = [];
   let hourlyTotals = [];
-  // Create our Matrix of Values
+  // Create Our Matrix Of Values
   for (let i = 0; i < localStores.length; i++) {
     // Calculate Store Total Sales
     let totalSales = 0;
     for (let j = 0; j < storeHours.length; j ++) {
       totalSales += localStores[i].cookieSalesPerStore[j];
     }
-    // Check that we're not pushing additional columns
+    // Check That We're Not Pushing Additional Columns
     if (localStores[i].cookieSalesPerStore.length <= storeHours.length) {
       // Push Total Sales to Relevant Cookie Store
       localStores[i].cookieSalesPerStore.push(totalSales);
@@ -96,7 +96,7 @@ function renderBody(localTotalSaleMatrix = totalSaleMatrix, localStores = JSON.p
     for(let j = 0; j < localTotalSaleMatrix[0].length; j++){
       let newCell = document.createElement('td');
       newCell.innerText = `${localTotalSaleMatrix[i][j]}`;
-      // Add Classes to Total Column
+      // Add Classes To Total Column
       if (j === localTotalSaleMatrix[0].length - 1) {
         newCell.classList += 'total';
       }
@@ -119,6 +119,7 @@ function renderFooter(localTotalSaleMatrix = totalSaleMatrix) {
   }
 }
 
+// Clear Existing Table Data
 function clearTable(){
   const elementsToClear = [];
   let storeTableHeader = document.querySelector('#sales-table thead');
@@ -132,12 +133,14 @@ function clearTable(){
   }
 }
 
+// Call All Table Methods
 function renderAll() {
   renderHeader();
   renderBody();
   renderFooter();
 }
 
+// Invoke Calc And Renders First Time Through
 calcStoreTotals();
 renderAll();
 
