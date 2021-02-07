@@ -90,7 +90,9 @@ function renderBody(localTotalSaleMatrix = totalSaleMatrix, localStores = JSON.p
   // Store Names
   for (let i = 0; i < localStores.length; i++) {
     var newRow = document.createElement('tr');
-    newRow.innerHTML = `${localStores[i].name}`;
+    let newTd = document.createElement('th');
+    newTd.innerHTML = `${localStores[i].name}`;
+    newRow.append(newTd);
     storeTableRowElement.append(newRow);
     // Sales Data
     for(let j = 0; j < localTotalSaleMatrix[0].length; j++){
@@ -109,7 +111,9 @@ function renderBody(localTotalSaleMatrix = totalSaleMatrix, localStores = JSON.p
 function renderFooter(localTotalSaleMatrix = totalSaleMatrix) {
   let storeTableFooter = document.querySelector('#sales-table tfoot');
   let newFooter = document.createElement('tr');
-  newFooter.innerHTML = 'Total';
+  let newTd = document.createElement('th');
+  newTd.innerHTML = 'Total';
+  newFooter.append(newTd);
   storeTableFooter.append(newFooter);
   for(let i = 0; i < localTotalSaleMatrix[0].length; i++) {
     var newFooterCell = document.createElement('td');
