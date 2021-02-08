@@ -43,7 +43,7 @@ if (localStorage.getItem('Store_List') === null) {
   new Store('Lima', [2, 16], 4.6);
 }
 
-// Calculate Totals Using A Matrix
+// Calculate Totals Using A Matrix TODO Append A Row Don't Recalc Whole Thing
 function calcStoreTotals(localStores = JSON.parse(localStorage.getItem('Store_List')), storeHours = hours) {
   totalSaleMatrix = [];
   let hourlyTotals = [];
