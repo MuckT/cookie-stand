@@ -115,6 +115,11 @@ main h3 {
   font-size: 20px;
 }
 
+main p {
+  margin-top: 20px;
+  text-indent: 2rem;
+}
+
 #locations, #hours, #store-management {
   border: black solid;
   border-radius: 4px;
